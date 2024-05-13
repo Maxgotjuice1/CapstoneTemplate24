@@ -1,3 +1,32 @@
 html body {
-    background-color: #69ed34;
-  }
+  background-image: linear-gradient(rgb(21, 255, 0), rgb(0, 0, 0));
+ }
+
+p{
+  color:white;
+}
+
+.whitetext{
+  color:white;
+
+}
+
+.whiteandbold{
+  color:white;
+  font-weight: bolder;
+}
+
+h1{
+  color:white
+}
+h3{
+  color:white
+}
+
+b{
+  color:white
+}
+
+#grad {
+  background-image: linear-gradient(red, yellow);
+}

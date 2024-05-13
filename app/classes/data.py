@@ -107,6 +107,19 @@ class Dog(Document):
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
 
+
+
+class Buissness(Document):
+    buissness_name = StringField()
+    buissness_product = StringField()
+    date = StringField()
+    location = StringField()
+    favorites =StringField()
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
     meta = {
         'ordering': ['-createdate']
     }
+
+

@@ -6,7 +6,7 @@
 <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
 <div class="row">
     <div class="col-4">
-        <h1 class="display-1">Any Feedback for us?</h1>
+        <h1 class="display-1">Any Questions for us?</h1>
     </div>
     <div class="col">
         <a href="/dog/new" class="btn btn-primary btn-sm mt-5" role="button">Comment Button</a>
@@ -18,24 +18,36 @@
         <div class="row border-bottom">
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
+                <h3 class="display-5">Edit/Delete</h3>
                 {% endif %}
 
                 <a href="/dog/{{dog.id}}">
                     {{moment(dog.create_date).calendar()}}
                 </a>
             </div>
-            <div class="col-2">
+            <div class="col-2 whiteandbold">
                 {% if loop.index == 1 %}
                 <h3 class="display-5">User</h3>
                 {% endif %}
                 {{dog.author.fname}} {{dog.author.lname}}
             </div>
-            <div class="col">
+            <div class="col  whiteandbold">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Breed</h3>
+                    <h3 class="display-5">Buissness idea</h3>
                 {% endif %}
                 {{dog.breed}}
+            </div>
+            <div class="col  whiteandbold">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">What plan ypu have for your buissness</h3>
+                {% endif %}
+                {{dog.age}}
+            </div>
+            <div class="col  whiteandbold">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">What do you want your buissness to do</h3>
+                {% endif %}
+                {{dog.name}}
             </div>
         </div>
     {% endfor %}

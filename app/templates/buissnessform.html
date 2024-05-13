@@ -7,7 +7,7 @@
 <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
 
 <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-        <h1>Make a plan for your business!</h1>
+        <h1>Make a Business!</h1>
 
         <div class="text-center">
 
@@ -15,26 +15,44 @@
         <form method=post>
             {{ form.hidden_tag() }}
             <p>
-                {{ form.breed.label }} <br>
-                {{ form.breed(size=64) }}
+                {{ form.buissness_name.label }} <br>
+                {{ form.buissness_name(size=64) }}
                 <!--List the errors for this field-->
-                {% for error in form.breed.errors %}
+                {% for error in form.buissness_name.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.age.label }} <br>
-                {{ form.age(cols=64, rows=10) }}
+                {{ form.buissness_product.label }} <br>
+                {{ form.buissness_product(cols=64, rows=10) }}
                 <!--List the errors for this field-->
-                {% for error in form.age.errors %}
+                {% for error in form.buissness_product.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.name.label }} <br>
-                {{ form.name(size=64) }}
+                {{ form.date.label }} <br>
+                {{ form.date(size=64) }}
                 <!--List the errors for this field-->
-                {% for error in form.name.errors %}
+                {% for error in form.date.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.location.label }} <br>
+                {{ form.location(cols=64, rows=10) }}
+                <!--List the errors for this field-->
+                {% for error in form.location.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.favorites.label }} <br>
+                {{ form.favorites(cols=64, rows=10) }}
+                <!--List the errors for this field-->
+                {% for error in form.favorites.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>

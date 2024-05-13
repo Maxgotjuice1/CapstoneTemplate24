@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if buissness%}
+<div class="col-2 whiteandbold">
+    {{moment(buissness.create_date).calendar()}} by {{buissness.author.fname}} {{buissness.author.lname}} 
+    {% if buissness.modifydate %}
+        modified {{moment(buissness.modifydate).calendar()}}
+    {% endif %}
+</div>
+    <br>
+<div class="col-2 whiteandbold">
+   {% if buissness.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete Buissness" href="/buissness/delete/{{buissness.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Edit Buissness" href="/buissness/edit/{{buissness.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+</div>
+
+    <h1 class="display-5">{{buissness.buissness_name}}</h1>
+    <p class="fs-3 text-break">
+        {% if buissness.author.image %}
+            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(buissness.author.image.read())}}">
+        {% endif %}
+            {{buissness.buissness_product}} <br>
+            {{buissness.date}}
+            {{buissness.location}}
+
+    </p>
+
+{% else %}
+
+{% endif %}
+
+{% endblock %}

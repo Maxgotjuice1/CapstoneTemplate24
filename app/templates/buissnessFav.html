@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
+
+<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
+<div class="row">
+    <div class="col-4">
+        <h1 class="display-1">Your Favorites!</h1>
+    </div>
+</div>
+
+{% if buissnesss %}
+    {% for buissness in buissnesss %}
+        {% if buissness.favorites == "Favorite"%}
+            <div class="row border-bottom">
+            <div class="col-2">
+                    <h3 class="display-5">Edit/Delete</h3>
+                        {% if loop.index == 0 %}
+                {% endif %}
+
+                <a href="/buissness/{{buissness.id}}">
+                    {{moment(buissness.create_date).calendar()}}
+                </a>
+            </div>
+            <div class="col-2 whitetext">
+                    <h3 class="display-5">User</h3>
+                        {% if loop.index == 1 %}
+                {% endif %}
+                {{buissness.author.fname}} {{buissness.author.lname}}
+            </div>
+            <div class="col whitetext">
+                    <h3 class="display-5">Business Name</h3>
+                        {% if loop.index == 1 %}
+                {% endif %}
+                {{buissness.buissness_name}}
+            </div>
+            <div class="col whitetext">
+                    <h3 class="display-5">Business Product</h3>
+                        {% if loop.index == 1 %}
+                {% endif %}
+                {{buissness.buissness_product}}
+            </div>
+            <div class="col whitetext">
+                    <h3 class="display-5">Date the business was made</h3>
+                        {% if loop.index == 1 %}
+                {% endif %}
+                {{buissness.date}}
+            </div>
+            <div class="col whitetext">
+                    <h3 class="display-5">Location of business</h3>
+                        {% if loop.index == 1 %}
+                {% endif %}
+                {{buissness.location}}
+            </div>
+            </div>
+ 
+    {% endif %}
+
+    {% endfor %}
+    <div class="col">
+        <a href="/buissness/new" class="btn btn-primary btn-sm mt-5" role="button">Add Another</a>
+</div>
+{% else %}
+no businesses
+{% endif %}
+
+{% endblock %}

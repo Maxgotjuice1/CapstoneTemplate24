@@ -54,7 +54,17 @@ class ClinicForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class DogForm(FlaskForm):
-     breed= StringField('Subject', validators=[DataRequired()])
-     age = TextAreaField('Blog', validators=[DataRequired()])
-     name= StringField('Tag', validators=[DataRequired()])
-     submit = SubmitField('Blog')
+     breed= StringField('Business idea', validators=[DataRequired()])
+     age = TextAreaField('What is the plan for your business', validators=[DataRequired()])
+     name= StringField('What do you want for your business to do', validators=[DataRequired()])
+     submit = SubmitField('Submit')
+
+
+class BuissnessForm(FlaskForm):
+    buissness_name= StringField('Buissness name', validators=[DataRequired()])
+    buissness_product= StringField('What product are you going to make or sell', validators=[DataRequired()])
+    date= StringField('When was the date your buissness started', validators=[DataRequired()])
+    location= StringField('Were is your buissness located', validators=[DataRequired()])
+    favorites= SelectField('Role',choices=[("Favorite","Favorite"),("Not favorite","Not favorite")])
+    submit = SubmitField('Submit your buissness')
+    
