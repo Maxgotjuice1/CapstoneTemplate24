@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if dog %}
+    {{moment(dog.create_date).calendar()}} by {{dog.author.fname}} {{dog.author.lname}} 
+    {% if dog.modifydate %}
+        modified {{moment(dog.modifydate).calendar()}}
+    {% endif %}
+    <br>
+    {% if dog.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete Dog" href="/dog/delete/{{dog.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Edit Dog" href="/dog/edit/{{dog.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+
+    <h1 class="display-5">{{dog.breed}}</h1>
+    <p class="fs-3 text-break">
+        {% if dog.author.image %}
+            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(dog.author.image.read())}}">
+        {% endif %}
+            {{dog.age}} <br>
+            {{dog.name}}
+
+    </p>
+
+{% else %}
+
+{% endif %}
+
+{% endblock %}

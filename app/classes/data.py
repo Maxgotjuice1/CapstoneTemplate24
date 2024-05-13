@@ -31,11 +31,12 @@ class User(UserMixin, Document):
     email = EmailField()
     image = FileField()
     prononuns = StringField()
+    myemail = StringField()
     adult_fname = StringField()
     adult_lname = StringField()
     adult_email = StringField()
     consent = BooleanField(default=False)
-
+    role = StringField()
     meta = {
         'ordering': ['lname','fname']
     }
@@ -94,6 +95,18 @@ class Clinic(Document):
     lat = FloatField()
     lon = FloatField()
     
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Dog(Document):
+    breed = StringField()
+    age = StringField()
+    name = StringField()
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
     meta = {
         'ordering': ['-createdate']
     }

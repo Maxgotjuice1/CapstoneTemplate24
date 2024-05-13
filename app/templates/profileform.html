@@ -31,9 +31,25 @@
             {{ form.image() }}<br>
             {% for error in form.image.errors %}
             <span style="color: red;">[{{ error }}]</span>
+
             {% endfor %}
         </p>
+        <p>
+            {{ form.role.label }}<br>
+            {{ form.role() }}<br>
+            {% for error in form.role.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            </p>
         <p>{{ form.submit() }}</p>
+
+        <p>
+            {{ form.myemail.label }}<br>
+            {{ form.myemail(size=64) }}<br>
+            {% for error in form.myemail.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
     </form>
 
 {% endblock %}
